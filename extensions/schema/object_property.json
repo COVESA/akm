@@ -1,0 +1,7 @@
+{
+    "$id":"akm.extension.ObjectProperty",
+    "type":"object",
+    "description" : "extended properties for ObjectProperty",
+    "properties":{},
+    "required" : []
+}

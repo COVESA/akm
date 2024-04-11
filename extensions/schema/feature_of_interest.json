@@ -1,0 +1,7 @@
+{
+  "$id":"akm.extension.FeatureOfInterest",
+  "type":"object",
+  "description" : "extended properties for FeatureOfInterest",
+  "properties":{},
+  "required" : []
+}

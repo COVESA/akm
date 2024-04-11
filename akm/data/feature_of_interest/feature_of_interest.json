@@ -1,0 +1,200 @@
+[
+  {
+    "id": "Vehicle",
+    "name": "Vehicle",
+    "definition": "A self-powered means of conveyance or transport that rides on wheels",
+    "entityTypeID": "FeatureOfInterest",
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "VehicleComponent"
+    }
+  },
+  {
+    "id": "Cabin",
+    "name": "Cabin",
+    "definition": "The area of a vehicle designated for occupants",
+    "entityTypeID": "FeatureOfInterest",
+    "partOf": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "Vehicle"
+    },
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "VehicleComponent"
+    }
+  },
+  {
+    "id": "HVAC",
+    "name": "Heating, Ventilation, and Air Condition (HVAC)",
+    "definition": "The system that moves, heats, cools, filters, or otherwise regulates air throughout the vehicle cabin",
+    "entityTypeID": "FeatureOfInterest",
+    "partOf": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "Vehicle"
+    },
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "ComfortComponent"
+    }
+  },
+  {
+    "id": "HVACStation.Row1.Driver",
+    "name": "HVAC Station serving row 1 driver side",
+    "definition": "A vehicle part that regulates the HVAC for the first row driver side",
+    "entityTypeID": "FeatureOfInterest",
+    "partOf": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "HVAC"
+    },
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "HVACStation"
+    }
+  },
+  {
+    "id": "HVACStation.Row1.Passenger",
+    "name": "HVAC Station serving row 1 passenger side",
+    "definition": "A vehicle part that regulates the HVAC for the first row passenger side",
+    "entityTypeID": "FeatureOfInterest",
+    "partOf": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "HVAC"
+    },
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "HVACStation"
+    }
+  },
+  {
+    "id": "HVACStation.Row2.Driver",
+    "name": "HVAC Station serving row 2 driver side",
+    "definition": "A vehicle part that regulates the HVAC for the second row driver side",
+    "entityTypeID": "FeatureOfInterest",
+    "partOf": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "HVAC"
+    },
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "HVACStation"
+    }
+  },
+  {
+    "id": "HVACStation.Row2.Passenger",
+    "name": "HVAC Station serving row 2 passenger side",
+    "definition": "A vehicle part that regulates the HVAC for the second row passenger side",
+    "entityTypeID": "FeatureOfInterest",
+    "partOf": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "HVAC"
+    },
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "HVACStation"
+    }
+  },
+  {
+    "id": "HVACStation.Row3.Driver",
+    "name": "HVAC Station serving row 3 driver side",
+    "definition": "A vehicle part that regulates the HVAC for the third row driver side",
+    "entityTypeID": "FeatureOfInterest",
+    "partOf": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "HVAC"
+    },
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "HVACStation"
+    }
+  },
+  {
+    "id": "HVACStation.Row3.Passenger",
+    "name": "HVAC Station serving row 3 passenger side",
+    "definition": "A vehicle part that regulates the HVAC for the third row passenger side",
+    "entityTypeID": "FeatureOfInterest",
+    "partOf": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "HVAC"
+    },
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "HVACStation"
+    }
+  },
+  {
+    "id": "HVACStation.Row4.Driver",
+    "name": "HVAC Station serving row 4 driver side",
+    "definition": "A vehicle part that regulates the HVAC for the fourth row driver side",
+    "entityTypeID": "FeatureOfInterest",
+    "partOf": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "HVAC"
+    },
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "HVACStation"
+    }
+  },
+  {
+    "id": "HVACStation.Row4.Passenger",
+    "name": "HVAC Station serving row 4 passenger side",
+    "definition": "A vehicle part that regulates the HVAC for the fourth row passenger side",
+    "entityTypeID": "FeatureOfInterest",
+    "partOf": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "HVAC"
+    },
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "HVACStation"
+    }
+  },
+  {
+    "id": "AirConditioning",
+    "name": "Air Conditioning",
+    "definition": "Air Conditioning",
+    "entityTypeID": "FeatureOfInterest",
+    "partOf": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "HVAC"
+    },
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "ComfortComponent"
+    }
+  },
+  {
+    "id": "AirRecirculation",
+    "name": "Air Recirculation",
+    "definition": "Air Recirculation",
+    "entityTypeID": "FeatureOfInterest",
+    "partOf": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "HVAC"
+    },
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "ComfortComponent"
+    }
+  },
+  {
+    "id": "Defroster.Front",
+    "name": "Front defroster",
+    "definition": "Front windshield defroster",
+    "entityTypeID": "FeatureOfInterest",
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "VisionComponent"
+    }
+  },
+  {
+    "id": "Defroster.Rear",
+    "name": "Rear defroster",
+    "definition": "Rear windshield defroster",
+    "entityTypeID": "FeatureOfInterest",
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "VisionComponent"
+    }
+  }
+]

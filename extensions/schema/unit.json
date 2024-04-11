@@ -1,0 +1,7 @@
+{
+    "$id":"akm.extension.Unit",
+    "type":"object",
+    "description" : "extended properties for Unit",
+    "properties":{},
+    "required" : []
+}

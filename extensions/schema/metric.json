@@ -1,0 +1,7 @@
+{
+    "$id":"akm.extension.Metric",
+    "type":"object",
+    "description" : "extended properties for Metric",
+    "properties":{},
+    "required" : []
+}

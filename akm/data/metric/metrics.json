@@ -1,0 +1,67 @@
+[
+  {
+    "id": "AirConditioning.IsActive",
+    "name": "Air Conditioning Is Active",
+    "definition": "A boolean variable indicating that the Air Conditioning Is Active",
+    "entityTypeID": "Metric",
+    "property": {
+      "referentEntityTypeID": "Property",
+      "referentID": "IsActive"
+    },
+    "featureOfInterest": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "AirConditioning"
+    }
+  },
+  {
+    "id": "AirRecirculation.IsActive",
+    "name": "Air Recirculation Is Active",
+    "definition": "A boolean variable indicating that the Air Recirculation Is Active",
+    "entityTypeID": "Metric",
+    "property": {
+      "referentEntityTypeID": "Property",
+      "referentID": "IsActive"
+    },
+    "featureOfInterest": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "AirRecirculation"
+    }
+  },
+  {
+    "id": "Defroster.Front.IsActive",
+    "name": "Front Defroster Is Active",
+    "definition": "A boolean variable indicating that the Front Defroster Is Active",
+    "entityTypeID": "Metric",
+    "property": {
+      "referentEntityTypeID": "Property",
+      "referentID": "IsActive"
+    },
+    "featureOfInterest": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "Defroster.Front"
+    }
+  },
+  {
+    "id": "HVACStation.Row1.Driver.AirTemperature",
+    "name": " Air Temperature for the HVAC Station serving row 1 driver",
+    "definition": " Air Temperature for the HVAC Station serving row 1 driver",
+    "entityTypeID": "Metric",
+    "property": {
+      "referentEntityTypeID": "Property",
+      "referentID": "AmbientAirTemperature"
+    },
+    "featureOfInterest": {
+      "referentEntityTypeID": "FeatureOfInterest",
+      "referentID": "HVACStation.Row1.Driver"
+    },
+    "representations": [
+      {
+        "entityTypeID": "Representation",
+        "schema": "VehicleSignalSpecification",
+        "id": "Vehicle.Cabin.HVACStation.Row1.Driver.Temperature",
+        "dataType": "float",
+        "unit": "degree_celsius"
+      }
+    ]
+  }
+]

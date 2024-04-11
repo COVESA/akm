@@ -1,0 +1,429 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "akm",
+  "title": "automotive knowledge model",
+  "description": "The schema objects that describe vehicle signals",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "akm.Metric"
+    },
+    {
+      "$ref": "akm.Property"
+    },
+    {
+      "$ref": "akm.FeatureOfInterest"
+    },
+    {
+      "$ref": "akm.FeatureOfInterestClass"
+    },
+    {
+      "$ref": "akm.Unit"
+    },
+    {
+      "$ref": "akm.DataType"
+    },
+    {
+      "$ref": "akm.EntityType"
+    }
+  ],
+  "$defs": {
+    "Entity": {
+      "$id": "akm.Entity",
+      "description": "A thing that can be said to exist and be described. The entity object provides those properties that apply to all top-level objects in the schema.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "A data element that uniquely locates or identifies an individual thing"
+        },
+        "name": {
+          "type": "string",
+          "description": "A term that provides enough context for a human to identify an individual thing"
+        },
+        "definition": {
+          "type": "string",
+          "description": "A statement of the exact meaning of a term"
+        },
+        "alias": {
+          "type": "string",
+          "description": "An optional name that identifies the subject to other parties or systems"
+        },
+        "comment": {
+          "type": "string",
+          "description": "An annotation that elucidates semantics, usage, context, or other helpful guidance"
+        },
+        "deprecation": {
+          "type": "object",
+          "$ref": "akm.Deprecation"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "definition"
+      ]
+    },
+    "Metric": {
+      "$id": "akm.Metric",
+      "description": "A particular property of a particular feature of interest",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "akm.Entity"
+        },
+        {
+          "$ref": "akm.extension.Metric"
+        }
+      ],
+      "properties": {
+        "entityTypeID": {
+          "type": "string",
+          "description": "A classfication of objects that share semantics, structure, and often behavior",
+          "const": "Metric"
+        },
+        "property": {
+          "type": "object",
+          "$ref": "akm.Reference",
+          "description": "A reference to the quality or quantity that describes a feature of interest. Set entityTypeID to Property"
+        },
+        "featureOfInterest": {
+          "type": "object",
+          "$ref": "akm.Reference",
+          "description": "A reference to the thing whose property is being observed or manipulated. Set entityTypeID to FeatureOfInterest"
+        },
+        "unit": {
+          "type": "object",
+          "$ref": "akm.Reference",
+          "description": "A reference to the unit of measure for this metric that overrides the default for the property. Set entityTypeID to Unit"
+        },
+        "representations": {
+          "type": "array",
+          "items": {
+            "$ref": "akm.Representation"
+          }
+        }
+      },
+      "required": [
+        "entityTypeID",
+        "property",
+        "featureOfInterest"
+      ],
+      "unevaluatedProperties": false
+    },
+    "Representation": {
+      "$id": "akm.Representation",
+      "description": "A rendering of an object in another schema or format",
+      "type": "object",
+      "properties": {
+        "entityTypeID": {
+          "type": "string",
+          "description": "A classfication of objects that share semantics, structure, and often behavior",
+          "const": "Representation"
+        },
+        "id": {
+          "type": "string",
+          "description": "A data element that uniquely locates or identifies an individual thing"
+        }
+      },
+      "required": [
+        "entityTypeID",
+        "id"
+      ],
+      "additionalProperties": true
+    },
+    "Property": {
+      "$id": "akm.Property",
+      "description": "An attribute or characteristic of something",
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "akm.DataProperty"
+        },
+        {
+          "$ref": "akm.ObjectProperty"
+        }
+      ]
+    },
+    "DataProperty": {
+      "$id": "akm.DataProperty",
+      "type": "object",
+      "description": "A property whose value is a literal",
+      "allOf": [
+        {
+          "$ref": "akm.Entity"
+        },
+        {
+          "$ref": "akm.extension.DataProperty"
+        }
+      ],
+      "properties": {
+        "entityTypeID": {
+          "type": "string",
+          "description": "A classfication of objects that share semantics, structure, and often behavior",
+          "const": "DataProperty"
+        },
+        "dataType": {
+          "type": "object",
+          "$ref": "akm.Reference",
+          "description": "A reference to the data type for this property. Set entityTypeID to DataType"
+        },
+        "format": {
+          "type": "string",
+          "description": "A semantic validation on data as specified by https://json-schema.org/understanding-json-schema/reference/string#format"
+        },
+        "defaultUnit": {
+          "type": "object",
+          "$ref": "akm.Reference",
+          "description": "A reference to the unit of measure for values of this property if no other is given. Set entityTypeID to Unit"
+        },
+        "min": {
+          "type": "number",
+          "description": "The minimum numeric value available for the property"
+        },
+        "max": {
+          "type": "number",
+          "description": "The maximum numeric value available for the property"
+        }
+      },
+      "required": [
+        "entityTypeID",
+        "dataType"
+      ],
+      "unevaluatedProperties": false
+    },
+    "ObjectProperty": {
+      "$id": "akm.ObjectProperty",
+      "type": "object",
+      "description": "A property whose value is an object",
+      "allOf": [
+        {
+          "$ref": "akm.Entity"
+        },
+        {
+          "$ref": "akm.extension.ObjectProperty"
+        }
+      ],
+      "properties": {
+        "entityTypeID": {
+          "type": "string",
+          "description": "A classfication of objects that share semantics, structure, and often behavior",
+          "const": "ObjectProperty"
+        },
+        "values": {
+          "type": "array",
+          "description": "The set of values available for the property",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "entityTypeID",
+        "values"
+      ],
+      "unevaluatedProperties": false
+    },
+    "FeatureOfInterest": {
+      "$id": "akm.FeatureOfInterest",
+      "type": "object",
+      "description": "A thing whose properties can be observed or manipulated as described by http://www.w3.org/ns/sosa#FeatureOfInterest",
+      "allOf": [
+        {
+          "$ref": "akm.Entity"
+        },
+        {
+          "$ref": "akm.extension.FeatureOfInterest"
+        }
+      ],
+      "properties": {
+        "entityTypeID": {
+          "type": "string",
+          "description": "A classfication of objects that share semantics, structure, and often behavior",
+          "const": "FeatureOfInterest"
+        },
+        "partOf": {
+          "type": "object",
+          "$ref": "akm.Reference",
+          "description": "A reference to the object that contains this feature of interest. Set entityTypeID to FeatureOfInterest"
+        },
+        "isA": {
+          "type": "object",
+          "$ref": "akm.Reference",
+          "description": "A reference to the object from which this feature of interest inherits properties that describe it. Set entityTypeID to FeatureOfInterest"
+        }
+      },
+      "required": [
+        "entityTypeID"
+      ],
+      "unevaluatedProperties": false
+    },
+    "FeatureOfInterestClass": {
+      "$id": "akm.FeatureOfInterestClass",
+      "type": "object",
+      "description": "A classfication of features of interest",
+      "allOf": [
+        {
+          "$ref": "akm.Entity"
+        },
+        {
+          "$ref": "akm.extension.FeatureOfInterestClass"
+        }
+      ],
+      "properties": {
+        "entityTypeID": {
+          "type": "string",
+          "description": "A classfication of objects that share semantics, structure, and often behavior",
+          "const": "FeatureOfInterestClass"
+        },
+        "isA": {
+          "type": "object",
+          "$ref": "akm.Reference",
+          "description": "A reference to the superclass to which this features of interest class belongs. Set entityTypeID to FeatureOfInterestClass"
+        }
+      },
+      "required": [
+        "entityTypeID"
+      ],
+      "unevaluatedProperties": true
+    },
+    "DataType": {
+      "$id": "akm.DataType",
+      "description": "A classification that prescribes which values a data element can take and what type of mathematical, relational or logical operations can be applied to them",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "akm.Entity"
+        },
+        {
+          "$ref": "akm.extension.DataType"
+        }
+      ],
+      "properties": {
+        "entityTypeID": {
+          "type": "string",
+          "description": "A classfication of objects that share semantics, structure, and often behavior",
+          "const": "DataType"
+        },
+        "min": {
+          "type": "number",
+          "description": "The minimum numeric value available for the property"
+        },
+        "max": {
+          "type": "number",
+          "description": "The maximum numeric value available for the property"
+        }
+      },
+      "required": [
+        "entityTypeID"
+      ],
+      "unevaluatedProperties": false
+    },
+    "Unit": {
+      "$id": "akm.Unit",
+      "description": "A standard unit, usually within a governed system of units, by which a quantity can be expressed and universally understood",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "akm.Entity"
+        },
+        {
+          "$ref": "akm.extension.Unit"
+        }
+      ],
+      "properties": {
+        "entityTypeID": {
+          "type": "string",
+          "description": "A classfication of objects that share semantics, structure, and often behavior",
+          "const": "Unit"
+        },
+        "systemOfUnits": {
+          "type": "string",
+          "description": "A standardized collection of units of measurement"
+        },
+        "symbol": {
+          "type": "string",
+          "description": "This represents the abbreviation or symbol used to denote the unit of measurement"
+        },
+        "quantityKind": {
+          "type": "string",
+          "description": "This term refers to the type or category of quantity that the unit measures"
+        }
+      },
+      "required": [
+        "entityTypeID"
+      ],
+      "unevaluatedProperties": false
+    },
+    "EntityType": {
+      "description": "A classification of objects that share semantics, structure, and often behavior",
+      "$id": "akm.EntityType",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "akm.Entity"
+        }
+      ],
+      "properties": {
+        "entityTypeID": {
+          "type": "string",
+          "description": "A classfication of objects that share semantics, structure, and often behavior",
+          "const": "EntityType"
+        }
+      },
+      "required": [
+        "entityTypeID"
+      ],
+      "unevaluatedProperties": false
+    },
+    "Reference": {
+      "$id": "akm.Reference",
+      "type": "object",
+      "description": "A link to an object",
+      "properties": {
+        "referentEntityTypeID": {
+          "type": "string",
+          "description": "The type of entity being referenced"
+        },
+        "referentID": {
+          "type": "string",
+          "description": "The id of the object being referenced"
+        }
+      },
+      "required": [
+        "referentEntityTypeID",
+        "referentID"
+      ]
+    },
+    "Deprecation": {
+      "$id": "akm.Deprecation",
+      "type": "object",
+      "description": "An indication that the object is obsolete and best avoided",
+      "properties": {
+        "release": {
+          "type": "string",
+          "description": "The release in which the object was deprecated"
+        },
+        "deprecationDate": {
+          "type": "string",
+          "description": "The date on which the object was deprecated"
+        },
+        "sunsetDate": {
+          "type": "string",
+          "description": "The date after which the object will no longer be supported"
+        },
+        "replacedBy": {
+          "type": "string",
+          "description": "An object that replaces or supersedes this one"
+        },
+        "comment": {
+          "type": "string",
+          "description": "A remark usually indicating the deprecation reason"
+        }
+      },
+      "required": [
+        "release"
+      ]
+    }
+  }
+}

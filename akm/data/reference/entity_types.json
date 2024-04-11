@@ -1,0 +1,50 @@
+[
+  {
+    "id": "Property",
+    "name": "Property",
+    "definition": "An attribute or characteristic of something",
+    "entityTypeID": "EntityType"
+  },
+  {
+    "id": "DataProperty",
+    "name": "Data Property",
+    "definition": "A property whose value is a literal",
+    "entityTypeID": "EntityType"
+  },
+  {
+    "id": "ObjectProperty",
+    "name": "ObjectProperty",
+    "definition": "A property whose value is an object",
+    "entityTypeID": "EntityType"
+  },
+  {
+    "id": "Unit",
+    "name": "Unit",
+    "definition": "A standard unit, usually within a governed system of units, by which a quantity can be expressed and universally understood",
+    "entityTypeID": "EntityType"
+  },
+  {
+    "id": "FeatureOfInterestClass",
+    "name": "Feature Of Interest Class",
+    "definition": "A type or category of Feature of Interest",
+    "entityTypeID": "EntityType"
+  },
+  {
+    "id": "FeatureOfInterest",
+    "name": "Feature Of Interest",
+    "definition": "A thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result, or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling",
+    "entityTypeID": "EntityType"
+  },
+  {
+    "id": "Metric",
+    "name": "Metric",
+    "definition": "A particular property of a particular feature of interest",
+    "entityTypeID": "EntityType"
+  },
+  {
+    "id": "Representation",
+    "name": "Representation",
+    "definition": "A rendering of an object in a different schema or format",
+    "entityTypeID": "EntityType"
+  }
+]

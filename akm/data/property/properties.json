@@ -1,0 +1,54 @@
+[
+  {
+    "id": "AmbientAirTemperature",
+    "name": "Ambient Air Temperature",
+    "definition": "The temperature of the air in a site or spatial region",
+    "entityTypeID": "DataProperty",
+    "dataType": {
+      "referentEntityTypeID": "DataType",
+      "referentID": "string"
+    },
+    "defaultUnit": {
+      "referentEntityTypeID": "Unit",
+      "referentID": "degree_celsius"
+    }
+  },
+  {
+    "id": "VerticalDirection",
+    "name": "Vertical Direction",
+    "definition": "The course which something moves from up to down",
+    "entityTypeID": "ObjectProperty",
+    "values": [
+      "CENTER",
+      "DOWN",
+      "NEUTRAL",
+      "UP"
+    ]
+  },
+  {
+    "id": "FanSpeedPercent",
+    "name": "Fan Speed Percent",
+    "definition": "The rotational frequency of a fan blade expressed as percent of maximum",
+    "entityTypeID": "DataProperty",
+    "dataType": {
+      "referentEntityTypeID": "uint8",
+      "referentID": "percent"
+    },
+    "defaultUnit": {
+      "referentEntityTypeID": "Unit",
+      "referentID": "percent"
+    },
+    "min": 0,
+    "max": 100
+  },
+ {
+    "id": "IsActive",
+    "name": "Is Active",
+    "definition": "A boolean variable indicating that the subject is currently performing its fundamental action or activity",
+    "entityTypeID": "DataProperty",
+    "dataType": {
+      "referentEntityTypeID": "DataType",
+      "referentID": "boolean"
+    }
+  }
+]

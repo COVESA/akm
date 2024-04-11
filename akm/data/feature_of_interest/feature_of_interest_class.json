@@ -1,0 +1,38 @@
+[
+  {
+    "id": "VehicleComponent",
+    "name": "Vehicle Component",
+    "definition": "A vehicle or an object that makes up a part of a vehicle",
+    "entityTypeID": "FeatureOfInterestClass"
+  },
+  {
+    "id": "ComfortComponent",
+    "name": "Comfort Component",
+    "definition": "A vehicle component that promotes a state of physical ease or mitigates physical pain and irritation",
+    "entityTypeID": "FeatureOfInterestClass",
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "VehicleComponent"
+    }
+  },
+  {
+    "id": "VisionComponent",
+    "name": "Vision Component",
+    "definition": "A vehicle component that affects what an occupant can see",
+    "entityTypeID": "FeatureOfInterestClass",
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "VehicleComponent"
+    }
+  },
+  {
+    "id": "HVACStation",
+    "name": "HVAC Station",
+    "definition": "A Vehicle Component that provides HVAC funtions to a region of a Vehicle",
+    "entityTypeID": "FeatureOfInterestClass",
+    "isA": {
+      "referentEntityTypeID": "FeatureOfInterestClass",
+      "referentID": "ComfortComponent"
+    }
+  }
+]

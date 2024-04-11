@@ -1,0 +1,166 @@
+[
+  {
+    "id": "boolean",
+    "name": "boolean",
+    "definition": "A binary data type that represents two possible values- true or false",
+    "entityTypeID": "DataType",
+    "jsonDataType": "boolean",
+    "xsdDataType": "xsd:boolean"
+  },
+  {
+    "id": "double",
+    "name": "double",
+    "definition": "A 64-bit number expressed in the decimal-point notation with an optional + or - prefix and an optional exponent after a trailing e",
+    "entityTypeID": "DataType",
+    "jsonDataType": "number",
+    "xsdDataType": "xsd:double"
+  },
+  {
+    "id": "doubles",
+    "name": "double array",
+    "definition": "An array in which each 64 bits represents a field of the double data type",
+    "entityTypeID": "DataType",
+    "jsonDataType": "array"
+  },
+  {
+    "id": "enumeration",
+    "name": "enumeration",
+    "definition": "A set of named values (elements) indexed by an integer",
+    "entityTypeID": "DataType"
+  },
+  {
+    "id": "float",
+    "name": "float",
+    "definition": "A 32-bit number expressed in the decimal-point notation with an optional + or - prefix and an optional exponent after a trailing e",
+    "entityTypeID": "DataType",
+    "jsonDataType": "number",
+    "xsdDataType": "xsd:float"
+  },
+  {
+    "id": "floats",
+    "name": "float array",
+    "definition": "An array in which each 32 bits represents a field of the float data type",
+    "entityTypeID": "DataType",
+    "jsonDataType": "array"
+  },
+  {
+    "id": "geophysicalCoordinate",
+    "name": "geophysicalCoordinate",
+    "definition": "A point on the surface of the earth identified by its latitude, longitude, and optionally altitude",
+    "entityTypeID": "DataType"
+  },
+  {
+    "id": "int16",
+    "name": "int16",
+    "definition": "16-bit signed integer for range -32768 to 32767",
+    "entityTypeID": "DataType",
+    "jsonDataType": "integer",
+    "xsdDataType": "xsd:short",
+    "min": -32768,
+    "max": 32767
+  },
+  {
+    "id": "int32",
+    "name": "int32",
+    "definition": "32-bit signed integer for values -2147483648 to 2147483647",
+    "entityTypeID": "DataType",
+    "jsonDataType": "integer",
+    "xsdDataType": "xsd:int",
+    "min": -214748364,
+    "max": 2147483647
+  },
+  {
+    "id": "int64",
+    "name": "int64",
+    "definition": "64-bit signed integer for values -9223372036854775808 to 9223372036854775807",
+    "entityTypeID": "DataType",
+    "jsonDataType": "integer",
+    "xsdDataType": "xsd:long",
+    "min": -9223372036854775808,
+    "max": 9223372036854775807
+  },
+  {
+    "id": "int8",
+    "name": "int8",
+    "definition": "8-bit signed integer for range -128 to 127",
+    "entityTypeID": "DataType",
+    "jsonDataType": "integer",
+    "xsdDataType": "xsd:byte",
+    "min": -128,
+    "max": 127
+  },
+  {
+    "id": "int8s",
+    "name": "int8 array",
+    "definition": "An array in which each 64 bits represents a field of the int8 data type",
+    "entityTypeID": "DataType",
+    "jsonDataType": "array"
+  },
+  {
+    "id": "string",
+    "name": "string",
+    "definition": "A sequence of characters treated as text",
+    "entityTypeID": "DataType",
+    "jsonDataType": "string",
+    "xsdDataType": "xsd:string"
+  },
+  {
+    "id": "strings",
+    "name": "string array",
+    "definition": "An array of strings delimited with a comma",
+    "entityTypeID": "DataType",
+    "jsonDataType": "array"
+  },
+  {
+    "id": "uint16",
+    "name": "uint16",
+    "definition": "16-bit unsigned integer for range 0 to 65535",
+    "entityTypeID": "DataType",
+    "jsonDataType": "integer",
+    "xsdDataType": "xsdLunsignedLong",
+    "min": 0,
+    "max": 65535
+  },
+  {
+    "id": "uint16s",
+    "name": "uint16 array",
+    "definition": "An array in which each 64 bits represents a field of the uint16 data type",
+    "entityTypeID": "DataType"
+  },
+  {
+    "id": "uint32",
+    "name": "uint32",
+    "definition": "32-bit unsigned integer for range 0 to 4294967295",
+    "entityTypeID": "DataType",
+    "jsonDataType": "integer",
+    "xsdDataType": "xsd:unsignedInt",
+    "min": 0,
+    "max": 4294967295
+  },
+  {
+    "id": "uint64",
+    "name": "uint64",
+    "definition": "64-bit unsigned integer for range 0 to 18446744073709551615",
+    "entityTypeID": "DataType",
+    "jsonDataType": "integer",
+    "xsdDataType": "xsd:LunsignedLong",
+    "min": 0,
+    "max": 18446744073709551615
+  },
+  {
+    "id": "uint8",
+    "name": "uint8",
+    "definition": "8-bit unsigned integer for values 0 to 255",
+    "entityTypeID": "DataType",
+    "jsonDataType": "integer",
+    "xsdDataType": "xsd:unsignedByte",
+    "min": 0,
+    "max": 255
+  },
+  {
+    "id": "uint8s",
+    "name": "uint8 array",
+    "definition": "An array in which each 64 bits represents a field of the uint8 data type",
+    "entityTypeID": "DataType"
+  }
+]

@@ -1,0 +1,309 @@
+[
+  {
+    "id": "ampere",
+    "name": "ampere",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "A",
+    "definition": "The base unit of electrical current in the International System of Units",
+    "quantityKind": "A"
+  },
+  {
+    "id": "ampere_hour",
+    "name": "ampere-hour",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "Ah",
+    "definition": "A unit of electric charge equal to the charge transferred by a steady current of one ampere flowing for one hour"
+  },
+  {
+    "id": "bar",
+    "name": "bar",
+    "symbol": "bar",
+    "entityTypeID": "Unit",
+    "definition": "A unit of pressure equal to 100,000 Pa (or 100 kPa)"
+  },
+  {
+    "id": "centimetre",
+    "name": "centimetre",
+    "symbol": "cm",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "definition": "A unit of length in the International System of Units equal to one hundredth of a metre",
+    "quantityKind": "L"
+  },
+  {
+    "id": "cycles_per_minute",
+    "name": "cycles per minute",
+    "symbol": "cpm",
+    "definition": "A unit of frequency equal to the number of repeated cycles or other events occurring in one minute",
+    "entityTypeID": "Unit",
+    "quantityKind": "T -1"
+  },
+  {
+    "id": "degree",
+    "name": "degree",
+    "symbol": "degrees",
+    "entityTypeID": "Unit",
+    "definition": "The angle equal to one of 360 equally divided parts of a circle"
+  },
+  {
+    "id": "degree_celsius",
+    "name": "degree Celsius",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "celsius",
+    "definition": "The unit of temperature on the Celsius scale",
+    "quantityKind": "K"
+  },
+  {
+    "id": "degree_per_second",
+    "name": "degree per second",
+    "symbol": "degrees/s",
+    "definition": "The angular frequency that results in the angular displacement increasing by one degree every second",
+    "entityTypeID": "Unit",
+    "quantityKind": "L T -1"
+  },
+  {
+    "id": "farad",
+    "name": "farad",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "F",
+    "definition": "A unit of electrical capacitance (the ability of a body to store an electrical charge) equal to 1 coulomb per volt (C/V)"
+  },
+  {
+    "id": "gram_per_second",
+    "name": "gram per second",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "g/s",
+    "definition": "A unit of mass flow rate expressing one grams per second",
+    "quantityKind": "MT -1"
+  },
+  {
+    "id": "hertz",
+    "name": "hertz",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "Hz",
+    "definition": "A unit of frequency equal to one event (or cycle) per second"
+  },
+  {
+    "id": "inch",
+    "name": "inch",
+    "systemOfUnits": "US Customary",
+    "symbol": "inch",
+    "definition": "A unit of length in the British imperial and the United States customary systems of measurement",
+    "entityTypeID": "Unit",
+    "quantityKind": "L"
+  },
+  {
+    "id": "joule",
+    "name": "joule",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "J",
+    "definition": "A unit of energy equal to the amount of work done when a force of one newton displaces a mass through a distance of one metre in the direction of that force"
+  },
+  {
+    "id": "kilogram",
+    "name": "kilogram",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "definition": "The basic unit of mass originally intended to be equal to the mass of 1,000 cubic cm of water"
+  },
+  {
+    "id": "kilometre",
+    "name": "kilometre",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "kg",
+    "definition": "A unit of length in the International System of Units equal to one thousand metres",
+    "quantityKind": "L"
+  },
+  {
+    "id": "kilometre_per_hour",
+    "name": "kilometre per hour",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "km/h",
+    "definition": "A unit of speed expressing kilometres travelled in one hour.",
+    "quantityKind": "L T -1"
+  },
+  {
+    "id": "kilopascal",
+    "name": "kilopascal",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "kPa",
+    "definition": "A unit of pressure in the International System of Units expressing one thousand pascals",
+    "quantityKind": "M1 L-1 T-2"
+  },
+  {
+    "id": "kilowatt_hour",
+    "name": "kilowatt hour",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "kWh",
+    "definition": "A unit of energy equivalent to  one kilowatt of power extended for one hour"
+  },
+  {
+    "id": "liter_per_hour",
+    "name": "liter per hour",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "l/h",
+    "definition": "A unit of volume flow rate expressing one liter per hour",
+    "quantityKind": "L 3 T -1"
+  },
+  {
+    "id": "metre",
+    "name": "metre",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "m",
+    "definition": "The base unit of length in the International System of Units",
+    "quantityKind": "L"
+  },
+  {
+    "id": "metre_per_second",
+    "name": "metre per second",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "m/s",
+    "definition": "A unit of both speed and velocity in the International System of Units expressing metres travelled in one second.",
+    "quantityKind": "m/s"
+  },
+  {
+    "id": "metre_per_second_squared",
+    "name": "metre per second squared",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "m/s^2",
+    "definition": "The unit of acceleration in the International System of Units expressing a change in velocity or speed expressed as metre per second per second",
+    "quantityKind": "L T -2"
+  },
+  {
+    "id": "milliliter",
+    "name": "milliliter",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "ml",
+    "definition": "A unit of length expressing one thousandth of a metre",
+    "quantityKind": "M0 L3 T0"
+  },
+  {
+    "id": "millimetre",
+    "name": "millimetre",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "mm",
+    "definition": "A unit of capacity expressing one thousandth of a liter",
+    "quantityKind": "L"
+  },
+  {
+    "id": "millisecond",
+    "name": "millisecond",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "ms",
+    "definition": "A unit of time expressing one thousandth of a secon",
+    "quantityKind": "T"
+  },
+  {
+    "id": "minute-time",
+    "name": "minute - time",
+    "symbol": "min",
+    "definition": "A unit of time equal to 60 seconds",
+    "entityTypeID": "Unit",
+    "quantityKind": "T"
+  },
+  {
+    "id": "newton_metre",
+    "name": "newton-metre",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "N-m",
+    "definition": "The torque resulting from a force of one newton applied perpendicularly to the end of a moment arm that is one metre long"
+  },
+  {
+    "id": "ohm",
+    "name": "ohm",
+    "symbol": "O",
+    "entityTypeID": "Unit",
+    "definition": "An electrical resistance between two points of a conductor when a constant potential difference of one volt  applied to these points produces a current of one ampere, the conductor not being the seat of any electromotive force"
+  },
+  {
+    "id": "pascal",
+    "name": "pascal",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "Pa",
+    "definition": "The unit of pressure in the International System of Units",
+    "quantityKind": "M1 L-1 T-2"
+  },
+  {
+    "id": "percent",
+    "name": "percent",
+    "symbol": "%",
+    "entityTypeID": "Unit",
+    "definition": "A number or ratio expressed as a fraction of 100"
+  },
+  {
+    "id": "ratio",
+    "name": "ratio",
+    "symbol": "ratio",
+    "entityTypeID": "Unit",
+    "definition": "An expression of how many times one number contains another"
+  },
+  {
+    "id": "revolution_per_minute",
+    "name": "revolution per minute",
+    "symbol": "rpm",
+    "definition": "A unit of rotational speed (or rotational frequency) equivalent to 1/60 hertz",
+    "entityTypeID": "Unit",
+    "quantityKind": "T -1"
+  },
+  {
+    "id": "second",
+    "name": "second",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "s",
+    "definition": "The unit of time in the International System of Units",
+    "quantityKind": "T"
+  },
+  {
+    "id": "signedPercent",
+    "name": "signed percent",
+    "symbol": "%-",
+    "entityTypeID": "Unit",
+    "definition": "A number or ratio expressed as a fraction of 100 or -100"
+  },
+  {
+    "id": "volt",
+    "name": "volt",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "V",
+    "definition": "The unit of electric potential, electric potential difference (voltage), and electromotive force in the International System of Units",
+    "quantityKind": "ML2T-3I-1"
+  },
+  {
+    "id": "watt",
+    "name": "watt",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "W",
+    "definition": "A unit of electrical power equal to one ampere under the pressure of one volt"
+  },
+  {
+    "id": "watt_hour",
+    "name": "watt hour",
+    "systemOfUnits": "International System of Units",
+    "entityTypeID": "Unit",
+    "symbol": "Wh",
+    "definition": "A unit of energy equivalent to one watt of power expended for one hour"
+  }
+]
