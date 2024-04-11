@@ -1,2 +1,1 @@
-# akm
-Automotive Knowledge Model
+# Automotive Knowledge Model (AKM)
