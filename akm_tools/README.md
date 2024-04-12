@@ -19,7 +19,7 @@ The main functionality is accessed through the command line interface (CLI) prov
 - `-xs`, `--extended_schema_dir`: Specifies the directory containing extended schema files for validation. Default is `extensions/schema`.
 - `-xd`, `--extended_data_dir`: Specifies the directory containing extended data. Default is `extensions/data`.
 
-- `-e`, `--export_format`: Specifies the format for exporting validated data. Options are `json`, `yaml`, and `graphql`.
+- `-e`, `--export_format`: Specifies the format for exporting validated data. Options are `json`, `yaml`
 - `-f`, `--export_file_path`: Specifies the path for the export file. Required if `--export_format` is specified.
 
 ### Example Commands
