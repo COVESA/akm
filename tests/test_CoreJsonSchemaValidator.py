@@ -1,5 +1,5 @@
 import pytest
-from akm_tools.validation.data_instace_validators import CoreJsonSchemaValidator
+from akm_tools.validation.data_instance_validators import CoreJsonSchemaValidator
 
 
 # Testing CoreJsonSchemaValidator with simple data

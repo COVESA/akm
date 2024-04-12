@@ -1,7 +1,7 @@
 import logging
 from typing import Dict, List
 
-from .data_instace_validators import CoreJsonSchemaValidator
+from .data_instance_validators import CoreJsonSchemaValidator
 from .data_context_validators import ExtendedInstanceContentValidator, CrossReferenceValidator
 
 # Set up logging
