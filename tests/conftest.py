@@ -2,9 +2,6 @@ import pytest
 from referencing.jsonschema import DRAFT202012
 from referencing import Registry, Resource
 
-## Assumptions/Requiremets : All types of schema will have ['id','type'] present and required for objects
-
-
 @pytest.fixture
 def simple_schema():
     schema = {
