@@ -36,7 +36,7 @@ def test_complex_data_validator_with_jsonschema_references(complex_schema_with_d
     """
     schema, registry = complex_schema_with_defs
     complex_data_validator = CoreJsonSchemaValidator(schema=schema, extended_schema_dir=None)
-    complex_data_validator.registr = registry
+    complex_data_validator.configure_registry(registry)
     valid_data = []
     for instance in complex_data:
         is_valid, _ = complex_data_validator.validate(instance=instance)
