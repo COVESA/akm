@@ -79,9 +79,7 @@ A DevContainer, or Development Container, is a reproducible development environm
     ![Open with Codespaces](https://docs.github.com/assets/images/help/repository/code-button.png)
 
 3. Click on '+ New codespace'. 
-
-    ![New codespace](https://docs.github.com/assets/images/help/codespaces/new-codespace-button.png)
-
+ 
 4. GitHub will create a new Codespace and automatically start setting it up by using the settings defined in the `.devcontainer/devcontainer.json` file in the repository. This includes installing any necessary extensions, setting up the correct runtime environment, and running any postCreateCommand defined.
 
 5. Once the Codespace is ready, you can start working with the code. You can run the module with Poetry:
@@ -95,8 +93,5 @@ A DevContainer, or Development Container, is a reproducible development environm
     ```
     python akm_tools/akm_parser.py
     ```
-
-Remember, any changes you make in the Codespace will be on its own separate branch, so you can commit and push your changes as you would normally with Git. When you're done, you can close the Codespace to stop incurring charges, and your code will be there when you come back.
-
 
 Refer to [akm_tools/README.MD](akm_tools/README.md) for instructions on how to use the tools.
