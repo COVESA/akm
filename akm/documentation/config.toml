@@ -1,0 +1,27 @@
+baseURL = "https://localhost/Automotive_Knowledge_Model/"
+languageCode = "en-us"
+title = "Automotive Knowledge Model"
+theme = "learn"
+publishDir = "../docs"
+[params]
+  # Change default color scheme with a variant one. Can be "red", "blue", "green".
+  themeVariant = "blue"
+  disableInlineCopyToClipBoard = true
+  editURL = "https://localhost/automotive_knowledge_model/edit/master/docs-gen/content/"
+  disableLandingPageButton = true
+
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-github'></i> Github repo"
+identifier = "ds"
+url = "https://localhost/automotive_knowledge_model"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-download'></i> Releases"
+url = "https://localhost/automotive_knowledge_model/releases"
+weight = 12
+
+# Generation of JSON index to allow search
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
