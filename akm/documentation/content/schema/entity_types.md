@@ -3,7 +3,6 @@
 
 ---
 title: "Entity Types"
-date: 2019-08-04T13:05:11+02:00
 weight: 1
 ---
 

@@ -1,6 +1,4 @@
 
-
-
 ---
 title: Usage Guidelines
 weight: 40
