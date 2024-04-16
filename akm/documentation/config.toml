@@ -14,12 +14,12 @@ publishDir = "../docs"
 [[menu.shortcuts]]
 name = "<i class='fab fa-github'></i> Github repo"
 identifier = "ds"
-url = "https://localhost/automotive_knowledge_model"
+url = "https://github.com/COVESA/akm"
 weight = 10
 
 [[menu.shortcuts]]
 name = "<i class='fas fa-download'></i> Releases"
-url = "https://localhost/automotive_knowledge_model/releases"
+url = "https://github.com/COVESA/akm/releases"
 weight = 12
 
 # Generation of JSON index to allow search

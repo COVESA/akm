@@ -1,3 +1,4 @@
+
 ---
 title: "Principles"
 date: 2021-07-05T15:12:25+02:00
@@ -25,7 +26,7 @@ Vehicle information is highly connected, so the AKM allows objects to refer to r
   - The front passenger HVAC station can indicate that it is a HVAC station.
   - The rear driver-side door can indicate that it is a cabin door.
 - Peer-to-peer associations
-  - The Vehicle.Speed metric can indicate that its feature of interest is the Vehicle, and that its property is Speed.
+  - The VehicleTravel.Speed metric can indicate that its feature of interest is VehicleTravel, and that its property is Speed.
   - The Speed property can indicate that its default unit of measurement is kilometer per hour, and that its data type is float.
 
 ## Atomic
@@ -37,11 +38,11 @@ An atomic concept is the smallest unit of meaning that can be modeled.   Separat
 - Ease data mapping and improve communication between data providers and consumers.
 
 ## Extensible
-Extensibility is the ability to add capabilities without rewriting code or changing its basic architecture.   Extensibility allows users and their software systems to quickly adapt to dynamic market and technology conditions.  The AKM is designed so that users can extend the schema with new classes, objects, properties, and attributes without breaking existing code.  Generally useful extensions can be submitted to the repository for review and acceptance. 
+Extensibility is the ability to add capabilities without rewriting code or changing the basic architecture.   Extensibility allows users and their software systems to quickly adapt to dynamic market and technology conditions.  The AKM is designed so that users can extend the schema with new classes, objects, properties, and attributes without breaking existing code.  Generally useful extensions can be submitted to the repository for review and acceptance. 
 
 Some ways that AKM provides extensibility are:
 - The model eschews enumerations in favor of explicit objects.  Instead of an enumeration of data types, for instance, the model defines a DataType class whose members are stored as json objects.
-- The model discourages the use of discrete identifiers (sometimes called "magic numbers").  For instance, rather than encode metric information in a field value as *Vehicle.Speed.KilometerPerHour.UInt8*, the metric explicitly articulates that information as *featureOfinterest: Vehicle, property: Speed, Unit: km/h*, and *dataType: uInt8*.
+- The model discourages the use of discrete identifiers (sometimes called "magic numbers").  For instance, rather than encode metric information in a field value as *Vehicle.Speed.KilometerPerHour.UInt8*, the metric explicitly articulates that information as *featureOfinterest: VehicleTravel, property: Speed, Unit: kilometer_per_hour*, and *dataType: uint8*.
 - Custom extensions are ignored by any validation or tools provided in the public repository.
 - The information is expressive and articulate enough to support the inference and automation enabled by formal knowledge systems like ontologies.
 

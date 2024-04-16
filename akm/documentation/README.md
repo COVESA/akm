@@ -1,7 +1,7 @@
 # AKM Documentation
 
 The AKM documentation is realized with GitHub Pages. It is generated from
-the markdown files in the ```/Documentation``` directory of this repository.
+the markdown files in the ```/documentation``` directory of this repository.
 The static webpage is generated automatically after every PR merged to master
 and deployed into a branch called `gh-pages`.
 
@@ -45,7 +45,7 @@ Reference: [Git Documentation](https://git-scm.com/book/en/v2/Git-Tools-Submodul
 Within the repository
 
 ```
-hugo server -D -s ./documentation
+hugo server -D -s akm/documentation
 ```
 
 Optional ```-D:``` include draft pages as well. Afterwards, you can access the

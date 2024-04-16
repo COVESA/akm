@@ -1,3 +1,4 @@
+
 ---
 title: Overview
 weight: 10
@@ -5,9 +6,9 @@ chapter: true
 ---
 
 # Overview
-The Automotive Knowledge Model (AKM) introduces a data model and metadata catalog for transmitting vehicle signals in a consistent manner.  AKM comprises two major sections:
-## Data Model
-The data model ensures that objects are described by a standard set of well-defined structures and properties.  The schema is represented in [JSON Schema](https://json-schema.org/) which provides many benefits:
+The Automotive Knowledge Model (AKM) is an expressive and extensible semantics and standards-based vocabulary and data model for automobiles.  It is defined in two major sections:
+## Schema
+The schema describes the AKM data model.  The schema is represented in [JSON Schema](https://json-schema.org/) which provides many benefits:
 
  - The standard is well-known, documented, and easy to read
  - It has a large ecosystem of [tools and implementations](https://json-schema.org/implementations) such as validators, code generators, and format converters.
@@ -19,3 +20,5 @@ The data model ensures that objects are described by a standard set of well-defi
 
 ![alt text](images/Model.PNG "Data Model")
 
+## Data
+The data includes json files that contain reference data such as standard data types and units, as well as common and generally useful master data such as metrics, features of interest, and properties.
