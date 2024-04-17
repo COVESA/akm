@@ -42,12 +42,12 @@ Poetry is a tool for dependency management and packaging in Python.
 5. You can now run the module with Poetry  (without poetry shell)
 
     ```
-    poetry run akm_tools/akm_parser.py
+    poetry run akm_tools/akm_validator.py
     ```
 6. Or with Poetry shell enabled. (normally your terminal prompt will be prefixed with it)
 
     ```
-    python akm_tools/akm_parser.py
+    python akm_tools/akm_validator.py
     ```
 
 ## Setup and Use with DevContainer
@@ -85,13 +85,13 @@ A DevContainer, or Development Container, is a reproducible development environm
 5. Once the Codespace is ready, you can start working with the code. You can run the module with Poetry:
 
     ```
-    poetry run akm_tools/akm_parser.py
+    poetry run akm_tools/akm_validator.py
     ```
 
 6. Or with Poetry shell enabled. (normally your terminal prompt will be prefixed with it)
 
     ```
-    python akm_tools/akm_parser.py
+    python akm_tools/akm_validator.py
     ```
 
 Refer to [akm_tools/README.MD](akm_tools/README.md) for instructions on how to use the tools.
