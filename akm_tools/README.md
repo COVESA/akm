@@ -10,7 +10,7 @@ This project provides a set of tools for parsing, validating, and exporting Auto
 
 ## Usage
 
-The main functionality is accessed through the command line interface (CLI) provided by `akm_parser.py`. Below are the available options and their descriptions:
+The main functionality is accessed through the command line interface (CLI) provided by `akm_validator.py`. Below are the available options and their descriptions:
 
 ### Command Line Arguments
 
@@ -26,12 +26,12 @@ The main functionality is accessed through the command line interface (CLI) prov
 
 Validate data without exporting:
 ```
-python akm_tools/akm_parser.py -xd your_extended_data_folder
+python akm_tools/akm_validator.py -xd your_extended_data_folder
 ```
 
 Export validated data to JSON:
 ```
-python akm_tools/akm_parser.py -d your_model_data_folder -e json -f path/to/export.json
+python akm_tools/akm_validator.py -d your_model_data_folder -e json -f path/to/export.json
 ```
 ### Logging
 Validation errors are logged to validation_errors.log, aiding in troubleshooting and ensuring data quality.
