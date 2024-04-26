@@ -76,7 +76,7 @@ A DevContainer, or Development Container, is a reproducible development environm
 
 2. Click the 'Code' button and then click 'Open with Codespaces'. 
 
-    ![Open with Codespaces](https://docs.github.com/assets/images/help/repository/code-button.png)
+    ![Open with Codespaces](akm/documentation/images/codespace_ref_image.png)
 
 3. Click on '+ New codespace'. 
  
