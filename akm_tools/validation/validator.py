@@ -55,7 +55,7 @@ class AKMDataValidator:
             logging.error(error_msg)
         if len (self.validation_errors)>0:
             if raise_errors:
-                raise Exception('There were errors during vaidaiton, please check the log file')
+                raise Exception('There were errors during validaton, please check the log file')
 
     def validate_contexts(self, all_data: List[Dict]):
         print("Validating Data Contexts")
