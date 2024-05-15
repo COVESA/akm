@@ -50,11 +50,11 @@ class AKMDataValidator:
         ]
         return data_instance_validator_objects
 
-    def log_errors(self,silent_mode):
+    def log_errors(self,raise_errors):
         for error_msg in self.validation_errors:
             logging.error(error_msg)
         if len (self.validation_errors)>0:
-            if not(silent_mode):
+            if raise_errors:
                 raise Exception('There were errors during vaidaiton, please check the log file')
 
     def validate_contexts(self, all_data: List[Dict]):

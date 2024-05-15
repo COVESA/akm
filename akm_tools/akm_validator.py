@@ -22,14 +22,14 @@ def create_and_combine_json_from_a_folder(dir_path):
     return list_to_return
 
 
-def parse_and_validate_data(model_folder, schema, extended_schema_dir, overlays,silent_mode):
+def parse_and_validate_data(model_folder, schema, extended_schema_dir, extended_data_dir,raise_errors):
     model_data_list = create_and_combine_json_from_a_folder(model_folder)
-    overlay_data_list = create_and_combine_json_from_a_folder(overlays)
-    all_data = model_data_list + overlay_data_list
+    extended_data_list = create_and_combine_json_from_a_folder(extended_data_dir)
+    all_data = model_data_list + extended_data_list
     validator_object = AKMDataValidator(schema=schema)
     validated_model_data = validator_object.validate_data_instances(all_data, extended_schema_dir=extended_schema_dir)
     validated_model_data = validator_object.validate_contexts(all_data=validated_model_data)  ## passing valid instances
-    validator_object.log_errors(silent_mode)
+    validator_object.log_errors(raise_errors)
     
     return validated_model_data
 
@@ -111,7 +111,11 @@ def main():
     with open(args.schema, "r") as f:
         schema = json.load(f)
     validated_model_data = parse_and_validate_data(
-        args.model_data_folder, schema, args.extended_schema_dir, args.extended_data_dir,args.silent_mode
+        model_folder=args.model_data_folder, 
+        schema=schema, 
+        extended_schema_dir=args.extended_schema_dir, 
+        extended_data_dir=args.extended_data_dir,
+        raise_errors=not(args.silent_mode)
     )
 
     if args.export_format:
