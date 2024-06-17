@@ -11,7 +11,7 @@ class IDConflictException(Exception):
 class BaseInstanceOverwiteException(Exception):
     def __init__(self, base_instance, extended_instance):
         err_msg = (
-            f"The extended instace :\n{extended_instance}\nis overwriting properties of base instance\n{base_instance}\n"
+            f"The extended instance :\n{extended_instance}\nis overwriting properties of base instance\n{base_instance}\n"
         )
         super().__init__(err_msg)
         self.message = err_msg

@@ -26,7 +26,7 @@ def test_BaseInstanceOverwiteException():
         raise BaseInstanceOverwiteException(base_instance, extended_instance)
     assert (
         str(excinfo.value)
-        == f"The extended instace :\n{extended_instance}\nis overwriting properties of base instance\n{base_instance}\n"
+        == f"The extended instance :\n{extended_instance}\nis overwriting properties of base instance\n{base_instance}\n"
     )
 
 
