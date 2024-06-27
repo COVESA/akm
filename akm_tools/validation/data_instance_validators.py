@@ -83,8 +83,8 @@ class CoreJsonSchemaValidator:
                             self.object_validators_dict[instance["entityTypeID"]].iter_errors(instance),
                             key=lambda e: e.path,
                         )
-                    base_error_msg += "\n".join(x.message for x in additioanl_error_info)
-                    base_error_msg += "\n"
+                        base_error_msg += "\n".join(x.message for x in additioanl_error_info)
+                        base_error_msg += "\n"
                 return False, base_error_msg
         except Exception as e:
             raise e

@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Tuple
 from .global_debug_config import GlobalDebugConfig
 from .custom_exceptions import IDConflictException, BaseInstanceOverwiteException, InvalidReferentIDException
 
@@ -21,15 +21,15 @@ class AllDataContextValidators(ABC):
         # Populate the instance_dict dictionary
         instance_dict = {}
         for instance in all_data:
-            if "id" in instance:
-                instance_id = instance["id"]
-                if instance_id not in instance_dict:
-                    # Initialize the ID key with a list containing the current instance
-                    instance_dict[instance_id] = {"count": 1, "instances": [instance]}
+            if "id" in instance and "entityTypeID" in instance:
+                instance_key = (instance["id"], instance["entityTypeID"])
+                if instance_key not in instance_dict:
+                    # Initialize the composite key with a list containing the current instance
+                    instance_dict[instance_key] = {"count": 1, "instances": [instance]}
                 else:
                     # Append the current instance to the list and increment the count
-                    instance_dict[instance_id]["instances"].append(instance)
-                    instance_dict[instance_id]["count"] += 1
+                    instance_dict[instance_key]["instances"].append(instance)
+                    instance_dict[instance_key]["count"] += 1
         return instance_dict
 
     def _handle_error(self, exception_type, *args):
@@ -42,7 +42,7 @@ class AllDataContextValidators(ABC):
 
 class ExtendedInstanceContentValidator(AllDataContextValidators):
     """
-    For Instances with duplicate "id", where one extends the other,
+    For Instances with duplicate ("id", "entityTypeID"), where one extends the other,
     check if the extended Instance does not overwrite content of base instance
     """
 
@@ -53,12 +53,12 @@ class ExtendedInstanceContentValidator(AllDataContextValidators):
         valid_data = []
         instance_dict = self.__class__.create_instance_dict(all_data)
 
-        # Handle instances with same ids and prepare valid_data
-        for instance_id, instance_content in instance_dict.items():
+        # Handle instances with same composite keys and prepare valid_data
+        for instance_key, instance_content in instance_dict.items():
             if len(instance_content) > 2:
                 self._handle_multiple_id_conflicts(instance_content)
             if instance_content["count"] == 2:
-                # check if the insances are not overriding , but only extending existing data.
+                # check if the instances are not overriding, but only extending existing data.
                 is_valid_extension, base_instance, extended_instance = self.__class__.check_data_is_extended_not_overwritten(
                     instance_content["instances"]
                 )
@@ -100,44 +100,48 @@ class CrossReferenceValidator(AllDataContextValidators):
         self.id_set = set()
 
     def validate_data_contexts(self, all_data):
-        # Create a dictionary mapping IDs to data instances
-        id_to_instance = {instance["id"]: instance for instance in all_data if "id" in instance}
+        # Create a dictionary mapping composite keys to data instances
+        id_to_instance = {
+            (instance["id"], instance["entityTypeID"]): instance 
+            for instance in all_data if "id" in instance and "entityTypeID" in instance
+        }
 
-        # Create a dictionary mapping IDs to their validity
-        id_to_validity = {id: None for id in id_to_instance}
+        # Create a dictionary mapping composite keys to their validity
+        id_to_validity = {key: None for key in id_to_instance}
 
-        def is_valid(id):
-            # If the ID is not in the dictionary, it's invalid
-            if id not in id_to_instance:
+        def is_valid(key: Tuple[Any, Any]):
+            # If the composite key is not in the dictionary, it's invalid
+            if key not in id_to_instance:
                 return False
 
             # If the validity has already been determined, return it
-            if id_to_validity[id] is not None:
-                return id_to_validity[id]
+            if id_to_validity[key] is not None:
+                return id_to_validity[key]
 
-            # Mark the ID as being checked to handle circular references
-            id_to_validity[id] = False
+            # Mark the composite key as being checked to handle circular references
+            id_to_validity[key] = False
 
-            instance = id_to_instance[id]
-            for key, value in instance.items():
+            instance = id_to_instance[key]
+            for value in instance.values():
                 if (
                     isinstance(value, dict)
                     and "referentEntityTypeID" in value  ## this is hard dependency to schema for akm.Reference
                     and "referentID" in value
                 ):
-                    if not is_valid(value["referentID"]):
+                    referent_key = (value["referentID"], value["referentEntityTypeID"])
+                    if not is_valid(referent_key):
                         return False
 
             # If all references are valid, the instance is valid
-            id_to_validity[id] = True
+            id_to_validity[key] = True
             return True
 
         # Validate the references
-        for id in id_to_instance:
-            is_valid(id)
+        for key in id_to_instance:
+            is_valid(key)
 
         # Collect the valid data
-        valid_data = [instance for id, instance in id_to_instance.items() if id_to_validity[id]]
+        valid_data = [instance for key, instance in id_to_instance.items() if id_to_validity[key]]
 
         return valid_data
 

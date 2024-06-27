@@ -51,21 +51,22 @@ def circular_references():
 def test_invalid_chain_of_references(invalid_chain_of_references):
     validator = CrossReferenceValidator()
     valid_data = validator.validate_data_contexts(invalid_chain_of_references)
-    assert len(valid_data) == 0, "The validator should return False for all instances"
+    assert len(valid_data) == 0, "The validator should return an empty list for invalid references"
 
 
 def test_valid_chain_of_reference(valid_chain_of_reference):
     validator = CrossReferenceValidator()
     valid_data = validator.validate_data_contexts(valid_chain_of_reference)
-    assert len(valid_data) == 3, "The validator should return True for valid cross-references"
+    assert len(valid_data) == 3, "The validator should return all instances for valid cross-references"
 
 
 def test_reference_not_present(reference_not_present):
     validator = CrossReferenceValidator()
     valid_data = validator.validate_data_contexts(reference_not_present)
-    assert len(valid_data) == 0, "The validator should return False for all instances"
+    assert len(valid_data) == 0, "The validator should return an empty list for missing references"
 
 
 def test_circular_references(circular_references):
     validator = CrossReferenceValidator()
-    assert validator.validate_data_contexts(circular_references) == []
+    valid_data = validator.validate_data_contexts(circular_references)
+    assert len(valid_data) == 0, "The validator should return an empty list for circular references"

@@ -12,8 +12,9 @@ def simple_schema():
             "type": {"type": "string"},
             "age": {"type": "number"},
             "id": {"type": "string"},
+            "entityTypeID": {"type": "string"},
         },
-        "required": ["id"],
+        "required": ["id", "entityTypeID"],
         "additionalProperties": False,
     }
     return schema
@@ -22,8 +23,8 @@ def simple_schema():
 @pytest.fixture
 def simple_data():
     data = [
-        {"type": "John", "age": 30, "id": "unique_id_1"},
-        {"type": "Jane", "age": 25, "id": "unique_id_2"},
+        {"type": "John", "age": 30, "id": "unique_id_1", "entityTypeID": "type1"},
+        {"type": "Jane", "age": 25, "id": "unique_id_2", "entityTypeID": "type2"},
     ]
     return data
 
@@ -31,15 +32,18 @@ def simple_data():
 @pytest.fixture
 def simple_data_with_more_attributes():
     data = [
-        {"type": "John", "age": 30, "id": "unique_id_1", "extra_attribute": "wild"},
-        {"type": "Jane", "age": 25, "id": "unique_id_2", "extra_attribute": "grass"},
+        {"type": "John", "age": 30, "id": "unique_id_1", "entityTypeID": "type1", "extra_attribute": "wild"},
+        {"type": "Jane", "age": 25, "id": "unique_id_2", "entityTypeID": "type2", "extra_attribute": "grass"},
     ]
     return data
 
 
 @pytest.fixture
 def simple_data_without_required_attribute():
-    data = [{"type": "John", "age": 30}, {"type": "Jane", "age": 25}]
+    data = [
+        {"type": "John", "age": 30, "entityTypeID": "type1"},
+        {"type": "Jane", "age": 25, "entityTypeID": "type2"}
+    ]
     return data
 
 
@@ -58,9 +62,10 @@ def complex_schema_with_defs():
                 "type": "object",
                 "properties": {
                     "id": {"type": "string"},
+                    "entityTypeID": {"type": "string"},
                     "definition": {"type": "string"},
                 },
-                "required": ["id"],
+                "required": ["id", "entityTypeID"],
             },
             "ObjectType1": {
                 "$id": "complexSchema.ObjectType1",
@@ -69,9 +74,8 @@ def complex_schema_with_defs():
                 "properties": {
                     "name": {"type": "string"},
                     "description": {"type": "string"},
-                    "type": {"type": "string", "const": "ObjectType1"},
                 },
-                "required": ["name", "type"],
+                "required": ["name"],
                 "unevaluatedProperties": False,
             },
             "ObjectType2": {
@@ -80,9 +84,8 @@ def complex_schema_with_defs():
                 "allOf": [{"$ref": "complexSchema.BaseClass"}],
                 "properties": {
                     "age": {"type": "number"},
-                    "type": {"type": "string", "const": "ObjectType2"},
                 },
-                "required": ["type"],
+                "required": ["age"],
                 "unevaluatedProperties": False,
             },
         },
@@ -97,27 +100,25 @@ def complex_data():
     data = [
         {
             "id": "unique_id_1",
+            "entityTypeID": "type1",
             "definition": "Some def1",
             "name": "AttributeName",
-            "type": "ObjectType1",
             "description": "some desc",
         },
-        {"id": "unique_id_2", "type": "ObjectType2", "age": 10},
+        {"id": "unique_id_2", "entityTypeID": "type2",  "age": 10},
     ]
     return data
 
 
 @pytest.fixture
-def complex_data_missing_required_attributes():  ## id/type is missing.
+def complex_data_missing_required_attributes():  ## id/entityTypeID is missing.
     data = [
         {
             "definition": "Some def1",
             "name": "AttributeName",
-            "type": "ObjectType1",
             "description": "some desc",
         },
         {
-            "type": "ObjectType2",
             "age": 10,
         },
     ]
@@ -129,15 +130,15 @@ def complex_data_with_additional_attributes():
     data = [
         {
             "id": "unique_id_1",
+            "entityTypeID": "typObjectType1e1",
             "definition": "Some def1",
             "name": "AttributeName",
-            "type": "ObjectType1",
             "description": "some desc",
             "extra_attribute": "wild",
         },
         {
             "id": "unique_id_2",
-            "type": "ObjectType2",
+            "entityTypeID": "ObjectType2",
             "age": 10,
             "extra_attribute": "grass",
         },
@@ -150,16 +151,16 @@ def data_with_duplicate_ids():
     data = [
         {
             "id": "unique_id_1",
+            "entityTypeID": "type1",
             "definition": "Some def1",
             "name": "AttributeName",
-            "type": "ObjectType1",
             "description": "some desc",
         },
         {
             "id": "unique_id_1",
+            "entityTypeID": "type1",
             "definition": "Some def2",
             "name": "AttributeName2",
-            "type": "ObjectType2",
             "description": "some desc2",
         },
     ]
@@ -167,7 +168,7 @@ def data_with_duplicate_ids():
 
 
 @pytest.fixture
-def scehma_with_extensions():
+def schema_with_extensions():
     schema = {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         "$id": "schema_with_extensions",
@@ -178,9 +179,9 @@ def scehma_with_extensions():
         "properties": {
             "id": {"type": "string"},
             "description": {"type": "string"},
-            "entityType": {"type": "string", "const": "ObjectType3"},
+            "entityTypeID": {"type": "string", "const": "ObjectType3"},
         },
-        "required": ["entityType"],
+        "required": ["id","entityTypeID"],
         "unevaluatedProperties": False,
     }
     schema_extension = {
@@ -201,7 +202,7 @@ def data_with_extended_properties():
     data = [
         {
             "id": "unique_id1",
-            "entityType": "ObjectType3",
+            "entityTypeID": "ObjectType3",
             "extended_property": "any string",
         }
     ]
@@ -213,11 +214,11 @@ def overlay_existing_data_with_addional_properties():
     data = [
         {
             "id": "unique_id1",
-            "entityType": "ObjectType3",
+            "entityTypeID": "ObjectType3",
         },
         {
             "id": "unique_id1",
-            "entityType": "ObjectType3",
+            "entityTypeID": "ObjectType3",
             "extended_property": "any string",
         },
     ]
@@ -225,16 +226,16 @@ def overlay_existing_data_with_addional_properties():
 
 
 @pytest.fixture
-def ovewrite_existing_data():
+def overwrite_existing_data():
     data = [
         {
             "id": "unique_id1",
+            "entityTypeID": "ObjectType3",
             "description": "description for unique_id1",
-            "entityType": "ObjectType3",
         },
         {
             "id": "unique_id1",
-            "entityType": "CHANGED",
+            "entityTypeID": "ObjectType3",
             "description": "description CHANGED",
             "extended_property": "any string",
         },

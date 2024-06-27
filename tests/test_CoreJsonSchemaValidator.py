@@ -68,8 +68,8 @@ def test_complex_data_validator_with_invalid_attribute(complex_schema_with_defs,
     assert all(valid_data) == False
 
 
-def test_complex_data_validator_with_extended_data(scehma_with_extensions, data_with_extended_properties):
-    schema, registry = scehma_with_extensions
+def test_complex_data_validator_with_extended_data(schema_with_extensions, data_with_extended_properties):
+    schema, registry = schema_with_extensions
     complex_data_validator = CoreJsonSchemaValidator(schema=schema, extended_schema_dir=None)
     complex_data_validator.configure_registry(registry)
     valid_data = []
@@ -79,12 +79,23 @@ def test_complex_data_validator_with_extended_data(scehma_with_extensions, data_
     assert all(valid_data) == True
 
 
-def test_complex_data_validator_with_extended_data(scehma_with_extensions, overlay_existing_data_with_addional_properties):
-    schema, registry = scehma_with_extensions
+def test_complex_data_validator_with_overlaid_data(schema_with_extensions, overlay_existing_data_with_addional_properties):
+    schema, registry = schema_with_extensions
     complex_data_validator = CoreJsonSchemaValidator(schema=schema, extended_schema_dir=None)
     complex_data_validator.configure_registry(registry)
     valid_data = []
     for instance in overlay_existing_data_with_addional_properties:
+        is_valid, _ = complex_data_validator.validate(instance=instance)
+        valid_data.append(is_valid)
+    assert all(valid_data) == True
+
+
+def test_complex_data_validator_with_overwritten_data(schema_with_extensions, overwrite_existing_data):
+    schema, registry = schema_with_extensions
+    complex_data_validator = CoreJsonSchemaValidator(schema=schema, extended_schema_dir=None)
+    complex_data_validator.configure_registry(registry)
+    valid_data = []
+    for instance in overwrite_existing_data:
         is_valid, _ = complex_data_validator.validate(instance=instance)
         valid_data.append(is_valid)
     assert all(valid_data) == True
