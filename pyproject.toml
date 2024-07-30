@@ -8,7 +8,7 @@ authors = ["Mohit Yadav <mohit.yadav.id.code.repos@gmail.com>"]
 python = "^3.10"
 PyYAML = "*"
 jsonschema = "*"
-black = "^24.2.0"
+black = "^24.4.2"
 deepdiff = "^7.0.1"
 
 
