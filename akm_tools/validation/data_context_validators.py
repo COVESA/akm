@@ -10,7 +10,7 @@ class AllDataContextValidators(ABC):
     These type of validators work on the context of all the data together, instead of just one instance
     """
 
-    error_messages = []
+    error_messages: List[str]
 
     @abstractmethod
     def validate_data_contexts(self, all_data: List[Dict[str, Any]]):
@@ -47,6 +47,7 @@ class ExtendedInstanceContentValidator(AllDataContextValidators):
     """
 
     def __init__(self):
+        self.error_messages = []
         self.warning_messages = []
 
     def validate_data_contexts(self, all_data: List[Dict[str, Any]]):
@@ -55,7 +56,7 @@ class ExtendedInstanceContentValidator(AllDataContextValidators):
 
         # Handle instances with same composite keys and prepare valid_data
         for instance_key, instance_content in instance_dict.items():
-            if len(instance_content) > 2:
+            if instance_content["count"] > 2:
                 self._handle_multiple_id_conflicts(instance_content)
             if instance_content["count"] == 2:
                 # check if the instances are not overriding, but only extending existing data.
@@ -97,6 +98,7 @@ class ExtendedInstanceContentValidator(AllDataContextValidators):
 
 class CrossReferenceValidator(AllDataContextValidators):
     def __init__(self):
+        self.error_messages = []
         self.id_set = set()
 
     def validate_data_contexts(self, all_data):
